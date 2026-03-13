@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Monopoly Mini App</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- HEADER -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">🎲</div>
+        <div class="title">
+          <div class="name">Monopoly</div>
+          <div class="sub">Telegram Mini App</div>
+        </div>
+      </div>
+
+      <div class="room">
+        <div class="roomLabel">Комната</div>
+        <div class="roomCode" id="roomCode">—</div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="layout">
+
+      <!-- LEFT PANEL -->
+      <section class="panel left">
+
+        <div class="card">
+          <div class="cardTitle">👤 Игрок</div>
+          <div class="playerLine">
+            <div class="avatar" id="playerAvatar">🙂</div>
+            <div class="playerMeta">
+              <div class="playerName" id="playerName">Гость</div>
+              <div class="playerId" id="playerId">id: —</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardTitle">💰 Капитал</div>
+          <div class="money" id="playerMoney">1 500 $</div>
+          <div class="small">Стартовый капитал</div>
+        </div>
+
+        <div class="card">
+          <div class="cardTitle">🎭 Фишка</div>
+
+          <div class="tokens" id="tokenGrid">
+            <button class="tokenBtn" data-token="🐶">🐶</button>
+            <button class="tokenBtn" data-token="🐱">🐱</button>
+            <button class="tokenBtn" data-token="🐸">🐸</button>
+            <button class="tokenBtn" data-token="🦊">🦊</button>
+            <button class="tokenBtn" data-token="🐼">🐼</button>
+            <button class="tokenBtn" data-token="🦁">🦁</button>
+            <button class="tokenBtn" data-token="🐵">🐵</button>
+            <button class="tokenBtn" data-token="🐯">🐯</button>
+          </div>
+
+          <button class="btn primary" id="btnReady">Готов</button>
+        </div>
+
+        <div class="card">
+          <div class="cardTitle">👥 Игроки в комнате</div>
+          <div class="playersList" id="playersList">
+            <div class="placeholder">Ожидание игроков…</div>
+          </div>
+          <div class="small">Создатель комнаты может начать игру.</div>
+        </div>
+
+        <div class="card">
+          <div class="cardTitle">🎲 Кубики</div>
+
+          <div class="diceBox">
+            <div class="die" id="die1">—</div>
+            <div class="die" id="die2">—</div>
+          </div>
+
+          <button class="btn success" id="btnRoll" disabled>Бросить кубики</button>
+          <div class="small" id="turnInfo">Ход: —</div>
+        </div>
+
+      </section>
+
+      <!-- CENTER BOARD -->
+      <section class="boardArea">
+        <div class="boardWrap">
+          <img src="board.png.jpg" class="boardImg" alt="Карта Monopoly" />
+          <div class="boardHint">
+            Карта (40 клеток). В следующем шаге сделаем фишки поверх карты.
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT PANEL -->
+      <section class="panel right">
+
+        <div class="card">
+          <div class="cardTitle">📌 Лог событий</div>
+          <div class="log" id="gameLog"></div>
+        </div>
+
+        <div class="card">
+          <div class="cardTitle">💬 Чат комнаты</div>
+
+          <div class="chat" id="chatBox"></div>
+
+          <div class="chatSend">
+            <input type="text" id="chatInput" placeholder="Написать сообщение..." maxlength="140" />
+            <button class="btn" id="btnSend">➤</button>
+          </div>
+        </div>
+
+        <div class="card">
+<div class="cardTitle">📊 Статистика (черновик)</div>
+          <div class="stats" id="statsBox">
+            <div class="statLine"><span>Ходов:</span><b id="statMoves">0</b></div>
+            <div class="statLine"><span>Шансов:</span><b id="statChance">0</b></div>
+            <div class="statLine"><span>Казна:</span><b id="statChest">0</b></div>
+            <div class="statLine"><span>Тюрьма:</span><b id="statJail">0</b></div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <a class="link" href="rules.md" target="_blank">📜 Правила игры</a>
+      <div class="small">Monopoly Mini App — черновая версия</div>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
