@@ -312,3 +312,15 @@ connectWS(room);
 }
 
 init();
+async function joinRoom(code, player) {
+  await fetch("http://localhost:5000/join_room", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      code: code,
+      player: player
+    })
+  });
+}
